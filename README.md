@@ -135,27 +135,6 @@ model = load_model("checkpoints/fold_1/best_model_dice_0.9180.pth", config, devi
 mask = inference_single_image(model, "path/to/image.png", config, device)
 ```
 
-## Results
-
-### ISIC 2018 (5-Fold Cross-Validation)
-
-| Method | Accuracy | Sensitivity | Specificity | Jaccard | Dice |
-|--------|----------|-------------|-------------|---------|------|
-| U-Net | 86.37 | 80.52 | 84.26 | 82.43 | 85.64 |
-| FAT-Net | 93.78 | 90.00 | 93.89 | 82.02 | 87.13 |
-| DEU-Net | 95.57 | 91.40 | 96.67 | 87.46 | 89.81 |
-| GFANet | 94.31 | 90.75 | 94.13 | 88.64 | 89.57 |
-| **MRLSA-Net (Ours)** | **96.84** | **93.10** | **97.78** | **91.80** | **91.90** |
-
-### Cross-Dataset Generalization
-
-| Dataset | Accuracy | Sensitivity | Specificity | Jaccard | Dice |
-|---------|----------|-------------|-------------|---------|------|
-| PH2 | 96.96 | 96.48 | 95.74 | 93.87 | 93.12 |
-| HAM10000* | 96.58 | 93.77 | 95.12 | 92.64 | 92.38 |
-
-*HAM10000 uses third-party segmentation masks (see Dataset Preparation)
-
 ## Project Structure
 
 ```
