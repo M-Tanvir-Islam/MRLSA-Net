@@ -1,6 +1,5 @@
 # MRLSA-Net: Multi-scale Residual Local Self-Attention Network for Skin Lesion Segmentation
 
-[![Paper](https://img.shields.io/badge/Paper-BSPC-blue)](https://www.journals.elsevier.com/biomedical-signal-processing-and-control)
 [![Python](https://img.shields.io/badge/Python-3.8+-green)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.12+-red)](https://pytorch.org/)
 
