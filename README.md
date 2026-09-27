@@ -5,13 +5,20 @@
 
 Official implementation of **"MRLSA-Net: An Attention-Enhanced Framework for Robust Skin Lesion Segmentation"**.
 
+## Paper
+
+[Read the published paper](https://doi.org/10.1016/j.bspc.2026.110016)
+
+> Islam, M. T., Yin, Y., Timbi, Z., Islam, M. M., Yuan, Z., & Pasha, S. M. M. (2026). MRLSA-Net: An attention-enhanced framework for robust skin lesion segmentation. *Biomedical Signal Processing and Control, 120*, 110016. https://doi.org/10.1016/j.bspc.2026.110016
+
 ## Overview
 
 MRLSA-Net is a novel deep learning architecture for skin lesion segmentation that combines:
+
 - **Dual-Path Multi-Scale Feature Gating (DPMFG)**: Captures both local details and broader contextual features through parallel standard and dilated convolutions
 - **Residual Local Self-Attention (RLSA)**: Enhances lesion-specific details through efficient local attention without the computational demands of global attention mechanisms
 
-![Architecture](figures/architecture.png)
+![Architecture](figures/architecture.jpg)
 
 ## Requirements
 
@@ -20,6 +27,7 @@ pip install -r requirements.txt
 ```
 
 **Dependencies:**
+
 - Python >= 3.8
 - PyTorch >= 2.0.0
 - torchvision >= 0.15.0
@@ -38,10 +46,11 @@ pip install -r requirements.txt
 ### ISIC 2018
 
 1. Download from [ISIC Challenge](https://challenge.isic-archive.com/data/#2018):
+
    - ISIC2018_Task1-2_Training_Input (images)
    - ISIC2018_Task1_Training_GroundTruth (masks)
-
 2. Run preparation script:
+
 ```bash
 python prepare_datasets.py
 # Select option 1 for ISIC 2018
@@ -51,8 +60,8 @@ python prepare_datasets.py
 ### PH2
 
 1. Download from [Kaggle](https://www.kaggle.com/datasets/athina123/ph2dataset)
-
 2. Run preparation script:
+
 ```bash
 python prepare_datasets.py
 # Select option 2 for PH2
@@ -80,6 +89,7 @@ python train.py
 ```
 
 This will:
+
 - Perform 5-fold cross-validation on ISIC-2018
 - Save best checkpoints per fold in `checkpoints/fold_X/`
 - Report mean ± std metrics across all folds
@@ -88,27 +98,29 @@ This will:
 
 Key hyperparameters in `config.py`:
 
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| `IMAGE_SIZE` | (192, 192) | Input resolution |
-| `BATCH_SIZE` | 16 | Batch size |
-| `LEARNING_RATE` | 1e-4 | Initial learning rate |
-| `NUM_EPOCHS` | 150 | Maximum epochs |
-| `TVERSKY_ALPHA` | 0.5 | Tversky loss α |
-| `TVERSKY_BETA` | 0.5 | Tversky loss β |
-| `N_FOLDS` | 5 | Number of CV folds |
-| `VAL_SPLIT` | 0.1 | Validation split within training |
-| `EARLY_STOPPING_PATIENCE` | 10 | Early stopping patience |
-| `RANDOM_SEED` | 42 | Random seed for reproducibility |
+| Parameter                   | Value      | Description                      |
+| --------------------------- | ---------- | -------------------------------- |
+| `IMAGE_SIZE`              | (192, 192) | Input resolution                 |
+| `BATCH_SIZE`              | 16         | Batch size                       |
+| `LEARNING_RATE`           | 1e-4       | Initial learning rate            |
+| `NUM_EPOCHS`              | 150        | Maximum epochs                   |
+| `TVERSKY_ALPHA`           | 0.5        | Tversky loss α                  |
+| `TVERSKY_BETA`            | 0.5        | Tversky loss β                  |
+| `N_FOLDS`                 | 5          | Number of CV folds               |
+| `VAL_SPLIT`               | 0.1        | Validation split within training |
+| `EARLY_STOPPING_PATIENCE` | 10         | Early stopping patience          |
+| `RANDOM_SEED`             | 42         | Random seed for reproducibility  |
 
 ### Preprocessing Details
 
 **CLAHE Parameters (Section 3.1):**
+
 - `clip_limit`: 2.0
 - `tile_grid_size`: (8, 8)
 - Applied to L-channel of LAB color space
 
 **Data Augmentation (Training only):**
+
 - Horizontal flip (p=0.5)
 - Vertical flip (p=0.5)
 - Shift-scale-rotate (scale±12%, rotate±15°, shift±12%, p=0.5)
@@ -166,5 +178,3 @@ To ensure reproducibility:
 from utils import set_seed
 set_seed(42)  # Called automatically in train.py
 ```
-
-
