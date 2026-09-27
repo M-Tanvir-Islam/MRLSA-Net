@@ -18,7 +18,7 @@ MRLSA-Net is a novel deep learning architecture for skin lesion segmentation tha
 - **Dual-Path Multi-Scale Feature Gating (DPMFG)**: Captures both local details and broader contextual features through parallel standard and dilated convolutions
 - **Residual Local Self-Attention (RLSA)**: Enhances lesion-specific details through efficient local attention without the computational demands of global attention mechanisms
 
-![Architecture](figures/architecture.jpg)
+![Architecture](figures/architecture.JPG)
 
 ## Requirements
 
