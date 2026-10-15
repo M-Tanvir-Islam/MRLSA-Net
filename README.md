@@ -1,4 +1,4 @@
-# MMRLSA-Net: An Attention-Enhanced Framework for Robust Skin Lesion Segmentatio
+# MRLSA-Net: An Attention-Enhanced Framework for Robust Skin Lesion Segmentatio
 
 [![Python](https://img.shields.io/badge/Python-3.8+-green)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.12+-red)](https://pytorch.org/)
